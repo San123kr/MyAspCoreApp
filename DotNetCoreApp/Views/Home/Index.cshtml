@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Employee>
+@{
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Employee List";
+}
+
+<div class="card-deck">
+    @foreach (var employee in Model)
+    {
+        <div class="card m-3">
+            <div class="card-header">
+                <h3>@employee.Name</h3>
+            </div>
+            @*<img class="card-img-top" src="@employee.Image"  style="max-width:20%;" />*@
+            <div class="card-footer text-center">
+                @*<a asp-controller="home" asp-action="details" asp-route-ID="@employee.ID" class="btn btn-primary">View</a>*@
+                @Html.ActionLink("View", "Details", "home", new { id = @employee.Id }, new { @class = "btn btn-primary" })
+
+                <a asp-action="Edit" asp-controller="Home" asp-route-id="@employee.Id" class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    }
+</div>
+@section Scripts{
+    <script src="~/js/CustomScript.js"></script>
+}
