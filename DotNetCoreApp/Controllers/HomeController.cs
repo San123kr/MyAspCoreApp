@@ -30,13 +30,14 @@ namespace DotNetCoreApp.Controllers
             
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
             {
+                //Test GitHub
                 Employee = _employeeRepository.GetEmployee(Id),
                 PageTitle = "Employee Details"
             };
             return View(homeDetailsViewModel);
 
         }
-        [Authorize]
+       
         [HttpGet]
         public ViewResult Create()
         {
